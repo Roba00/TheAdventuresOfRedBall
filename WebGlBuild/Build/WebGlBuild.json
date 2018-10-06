@@ -1,0 +1,13 @@
+{
+"companyName": "RobaAbbajabal",
+"productName": "TheAdventuresOfRedBall",
+"dataUrl": "WebGlBuild.data.unityweb",
+"asmCodeUrl": "WebGlBuild.asm.code.unityweb",
+"asmMemoryUrl": "WebGlBuild.asm.memory.unityweb",
+"asmFrameworkUrl": "WebGlBuild.asm.framework.unityweb",
+"TOTAL_MEMORY": 268435456,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Light",
+"backgroundColor": "#FFFFFF"
+}

@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class SwordController : MonoBehaviour {
+public class SwordController : MonoBehaviour
+{
 
     public Transform tf;
     public Transform plrtf;
@@ -19,6 +21,8 @@ public class SwordController : MonoBehaviour {
     public bool isAttacking = false;
     public bool isLevel2 = false;
 
+    public Button attackb;
+
     void Start()
     {
         Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>());
@@ -32,12 +36,15 @@ public class SwordController : MonoBehaviour {
         {
             isLevel2 = false;
         }
+
+        attackb.onClick.AddListener(AttackClick);
     }
 
-    void FixedUpdate () {
+    void FixedUpdate()
+    {
         if (isLevel2)
         {
-            plrpos.x = plrtf.position.x + 0.5f;
+            plrpos.x = plrtf.position.x + 0.55f;
             plrpos.y = plrtf.position.y + 0.5f;
             plrpos.z = plrtf.position.z;
             tf.SetPositionAndRotation(plrpos, quat);
@@ -45,11 +52,11 @@ public class SwordController : MonoBehaviour {
         else
         {
             plrpos.x = plrtf.position.x + 1;
-            plrpos.y = plrtf.position.y + 1;
+            plrpos.y = plrtf.position.y + 0.9f;
             plrpos.z = plrtf.position.z;
             tf.SetPositionAndRotation(plrpos, quat);
         }
-	}
+    }
 
     void Update()
     {
@@ -60,18 +67,21 @@ public class SwordController : MonoBehaviour {
         }
         if (isAttacking == true)
         {
-            Debug.Log("Is Attacking!");
-            //SwordBox.size.Set(3.7f, 3.8f, 0.2f);
-            //SwordBox.center.Set(0, 0, 0);
             SwordBox.size = new Vector3(3.7f, 3.8f, 0.2f);
             SwordBox.center = new Vector3(0, 0, 0);
         }
         else
         {
-            //SwordBox.size.Set(1.4f, 4.4f, 0.2f);
-            //SwordBox.center.Set(-0.1f, 0, 0);
             SwordBox.size = new Vector3(1.4f, 4.4f, 0.2f);
             SwordBox.center = new Vector3(-0.1f, 0, 0);
+        }
+    }
+
+    void AttackClick()
+    {
+        if (!isAttacking)
+        {
+            StartCoroutine(Attack());
         }
     }
 

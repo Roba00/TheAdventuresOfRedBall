@@ -4,15 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameOver : MonoBehaviour {
+public class GameOver : MonoBehaviour
+{
 
     public Button retry;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         retry.onClick.AddListener(OnClick);
-	}
-	
-	void OnClick()
+    }
+
+    void OnClick()
     {
         SceneManager.LoadScene(1);
     }

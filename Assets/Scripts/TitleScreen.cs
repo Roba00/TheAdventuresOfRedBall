@@ -4,16 +4,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class TitleScreen : MonoBehaviour {
+public class TitleScreen : MonoBehaviour
+{
 
     public Button play;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         play.onClick.AddListener(OnClick);
     }
-	
-    void OnClick ()
+
+    void OnClick()
     {
         SceneManager.LoadScene(3);
         Debug.Log("Loaded Level 1");
