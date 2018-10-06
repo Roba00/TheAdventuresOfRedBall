@@ -1,5 +1,5 @@
 # TheAdventuresOfRedBall
-This page has last updated on 10/5/2018. If you want to play the game, go to https://roba.itch.io/the-adventures-of-red-ball
+This page has last updated on 10/5/2018.
 
 Synposis: I developed a Unity game called the Adventures of Red Ball as an Extended Learning Program Self-Study Project in the year of 2017-2018. This page contains all the files that "make" the game. 
 
