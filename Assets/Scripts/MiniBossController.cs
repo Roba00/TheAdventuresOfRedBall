@@ -102,10 +102,9 @@ public class MiniBossController : MonoBehaviour
             MiniBossVector.y = MiniBossTf.position.y - 4.5f;
             MiniBossVector.z = MiniBossTf.position.z;
 
-            if (Physics.Raycast(MiniBossVector, Vector3.left * Ray_Distance, out hitInfo, Ray_Distance) /*&& hitInfo.collider.name == "Player" && !hasAttacked*/)
+            if (GameObject.Find("Main Camera").transform.position.x >= 60.94f && !hasAttacked)
             {
-                if (hitInfo.collider.name == "Player" && !hasAttacked)
-                {
+                    hasAttacked = true;
                     Debug.Log("Flame Bird sees player!");
                     GameObject.Find("Main Camera").GetComponent<CameraController>().cameraFreeze = true;
                     SpriteRenderer[] sprites = CloudWall1.GetComponentsInChildren<SpriteRenderer>();
@@ -115,7 +114,6 @@ public class MiniBossController : MonoBehaviour
                     }
                     StartCoroutine(FlameBirdAttack());
                     hasAttacked = true;
-                }
             }
             Debug.DrawRay(MiniBossVector, Vector3.left * Ray_Distance, Color.red);
         }
@@ -150,15 +148,13 @@ public class MiniBossController : MonoBehaviour
             MiniBossVector.y = MiniBossTf.position.y - 1.85f;
             MiniBossVector.z = MiniBossTf.position.z;
 
-            if (Physics.Raycast(MiniBossVector, Vector3.left * Ray_Distance, out hitInfo, Ray_Distance))
+            if (GameObject.Find("Main Camera").transform.position.x >= 75.7f && !hasAttacked)
             {
-                if (hitInfo.collider.name == "Player" && !hasAttacked)
-                {
+                    hasAttacked = true;
                     Debug.Log("Dark Knight sees player!");
                     GameObject.Find("Main Camera").GetComponent<CameraController>().cameraFreeze = true;
                     StartCoroutine(DarkKnightAttack());
                     hasAttacked = true;
-                }
             }
             Debug.DrawRay(MiniBossVector, Vector3.left * Ray_Distance, Color.red);
         }
@@ -188,15 +184,13 @@ public class MiniBossController : MonoBehaviour
             MiniBossVector.y = MiniBossTf.position.y - 1.85f;
             MiniBossVector.z = MiniBossTf.position.z;
 
-            if (Physics.Raycast(MiniBossVector, Vector3.left * Ray_Distance, out hitInfo, Ray_Distance))
+            if (GameObject.Find("Main Camera").transform.position.x >= 66.4f && !hasAttacked)
             {
-                if (hitInfo.collider.name == "Player" && !hasAttacked)
-                {
+                    hasAttacked = true;
                     Debug.Log("King Yellow sees player!");
                     GameObject.Find("Main Camera").GetComponent<CameraController>().cameraFreeze = true;
                     StartCoroutine(FinalBossAttack());
                     hasAttacked = true;
-                }
             }
         }
     }
